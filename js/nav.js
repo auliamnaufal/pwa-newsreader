@@ -45,9 +45,11 @@ document.addEventListener("DOMContentLoaded", function () {
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4) {
         var content = document.querySelector("#body-content");
+        if (page === "home") {
+          getArticles();
+        }
         if (this.status == 200) {
           content.innerHTML = xhttp.responseText;
-          getArticles();
         } else if (this.status == 404) {
           content.innerHTML = "Halaman tidak ditemukan.";
         } else {
